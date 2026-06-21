@@ -2,7 +2,8 @@ import SwiftUI
 
 // Chooses between onboarding and the authenticated mock app flow.
 struct RootView: View {
-    @State private var hasCompletedOnboarding = false
+    
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
 
     var body: some View {
         if hasCompletedOnboarding {
