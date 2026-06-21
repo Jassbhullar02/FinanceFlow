@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Transaction record and visual category metadata used by transaction rows.
 struct Transaction: Identifiable {
     enum Category {
         case income
@@ -36,7 +37,5 @@ struct Transaction: Identifiable {
     let merchant: String
     let subtitle: String
     let amount: Decimal
-    let date: Date
     let category: Category
-    let isCredit: Bool
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
+// Chooses between onboarding and the authenticated mock app flow.
 struct RootView: View {
-//    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @State private var hasCompletedOnboarding = false
 
     var body: some View {
@@ -20,6 +20,7 @@ struct RootView: View {
     }
 }
 
+// Main tab shell with separate navigation stacks for each feature area.
 struct FinanceTabView: View {
     var body: some View {
         TabView {

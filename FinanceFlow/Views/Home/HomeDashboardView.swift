@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Dashboard screen that composes the Figma-matched home layout.
 struct HomeDashboardView: View {
     @StateObject var viewModel: HomeViewModel
 
@@ -44,6 +45,7 @@ struct HomeDashboardView: View {
     }
 
     private var header: some View {
+        // Greeting row with avatar and notification affordance.
         HStack(alignment: .center, spacing: 8) {
             avatar
 
@@ -87,6 +89,7 @@ struct HomeDashboardView: View {
     }
 
     private var earningsSection: some View {
+        // Horizontally scrolling earning cards match the target design crop.
         VStack(alignment: .leading, spacing: 13) {
             sectionHeader("Earnings")
 
@@ -103,6 +106,7 @@ struct HomeDashboardView: View {
     }
 
     private var savingsSection: some View {
+        // Two-column preview of savings goals shown on the dashboard.
         VStack(alignment: .leading, spacing: 14) {
             sectionHeader("Savings")
 
@@ -115,6 +119,7 @@ struct HomeDashboardView: View {
     }
 
     private var transactionsSection: some View {
+        // Recent transaction preview limited to the two visible rows.
         VStack(alignment: .leading, spacing: 12) {
             sectionHeader("Transactions")
 
@@ -145,6 +150,7 @@ struct HomeDashboardView: View {
     }
 
     private var displaySavings: [SavingsGoal] {
+        // Screen-specific mock goals keep the dashboard amounts aligned to the screenshot.
         [
             SavingsGoal(title: "Iphone 13 Mini", savedAmount: 300, targetAmount: 699, tint: .ffPrimary, symbol: "iphone"),
             SavingsGoal(title: "Macbook Pro M1", savedAmount: 300, targetAmount: 1499, tint: .ffPink, symbol: "laptopcomputer"),
@@ -154,6 +160,7 @@ struct HomeDashboardView: View {
     }
 }
 
+// Large balance hero card with decorative clipped circles.
 private struct ScreenshotBalanceCard: View {
     let balance: Decimal
 
@@ -216,6 +223,7 @@ private struct ScreenshotBalanceCard: View {
     }
 }
 
+// Income/outcome strip directly under the balance card.
 private struct ScreenshotIncomeOutcomeStrip: View {
     let income: Decimal
     let outcome: Decimal
@@ -268,6 +276,7 @@ private struct ScreenshotIncomeOutcomeStrip: View {
     }
 }
 
+// Single earning tile in the horizontal earnings list.
 private struct ScreenshotEarningCard: View {
     let initial: String
     let title: String
@@ -301,6 +310,7 @@ private struct ScreenshotEarningCard: View {
     }
 }
 
+// Compact savings tile used in the dashboard grid.
 private struct ScreenshotSavingsTile: View {
     let goal: SavingsGoal
 
@@ -348,6 +358,7 @@ private struct ScreenshotSavingsTile: View {
     }
 }
 
+// Dashboard transaction row styled for the home preview list.
 private struct ScreenshotHomeTransactionRow: View {
     let transaction: Transaction
 
@@ -386,4 +397,8 @@ private struct ScreenshotHomeTransactionRow: View {
         .frame(height: 60)
         .background(.white, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
     }
+}
+
+#Preview {
+    HomeDashboardView(viewModel: HomeViewModel())
 }

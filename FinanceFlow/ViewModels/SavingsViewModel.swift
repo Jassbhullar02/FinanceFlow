@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Supplies the mock savings cards for the dedicated Savings screen.
 final class SavingsViewModel: ObservableObject {
     let items: [SavingsScreenItem] = [
         SavingsScreenItem(
@@ -10,7 +11,7 @@ final class SavingsViewModel: ObservableObject {
             daysLeft: "14 days left",
             tint: .ffPrimary,
             symbol: "iphone",
-            showTitle: false
+            showTitle: true
         ),
         SavingsScreenItem(
             title: "Macbook Pro M1",

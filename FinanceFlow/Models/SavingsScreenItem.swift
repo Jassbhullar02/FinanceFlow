@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Larger savings card data used by the dedicated Savings screen.
 struct SavingsScreenItem: Identifiable {
     let id = UUID()
     let title: String

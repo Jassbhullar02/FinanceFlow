@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Dedicated savings screen with stacked goal cards.
 struct SavingsView: View {
     @StateObject var viewModel: SavingsViewModel
 
@@ -27,6 +28,7 @@ struct SavingsView: View {
     }
 
     private var header: some View {
+        // Custom header matches the screenshot instead of using a standard toolbar.
         HStack {
             Image(systemName: "chevron.left")
                 .font(.system(size: 28, weight: .regular))
@@ -50,6 +52,7 @@ struct SavingsView: View {
     }
 }
 
+// Large goal card with progress line and decorative icon watermark.
 private struct SavingsLargeCard: View {
     let item: SavingsScreenItem
 
@@ -116,6 +119,7 @@ private struct SavingsLargeCard: View {
     }
 
     private var progressLine: some View {
+        // GeometryReader keeps the progress fill responsive to card width.
         GeometryReader { proxy in
             ZStack(alignment: .leading) {
                 Capsule()
@@ -136,6 +140,7 @@ private struct SavingsLargeCard: View {
     }
 
     private var watermarkSize: CGFloat {
+        // Per-item tuning preserves the screenshot-like watermark scale.
         switch item.title {
         case "Iphone 13 Mini": 118
         case "Macbook Pro M1": 116
@@ -169,8 +174,6 @@ private struct SavingsLargeCard: View {
     }
 }
 
-struct SavingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SavingsView(viewModel: SavingsViewModel())
-    }
+#Preview {
+    SavingsView(viewModel: SavingsViewModel())
 }

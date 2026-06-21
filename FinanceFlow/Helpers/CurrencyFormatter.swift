@@ -1,5 +1,6 @@
 import Foundation
 
+// Shared USD formatter keeps money display consistent across screens.
 enum CurrencyFormatter {
     static let dollars: NumberFormatter = {
         let formatter = NumberFormatter()

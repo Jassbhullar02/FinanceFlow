@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Animated dots that mirror the onboarding TabView index.
 struct PageIndicator: View {
     let count: Int
     let currentIndex: Int

@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Wallet screen with card carousel, transactions, and savings summary.
 struct WalletView: View {
     @StateObject var viewModel: WalletViewModel
 
@@ -29,6 +30,7 @@ struct WalletView: View {
     }
 
     private var header: some View {
+        // Top bar mirrors the screenshot spacing and centered title.
         HStack(alignment: .center) {
             avatar
 
@@ -61,6 +63,7 @@ struct WalletView: View {
     }
 
     private var walletCarousel: some View {
+        // Horizontal scroll hosts the add-card rail plus multiple wallet cards.
         GeometryReader { proxy in
             let cardWidth = max(proxy.size.width - 52, 240)
 
@@ -95,6 +98,7 @@ struct WalletView: View {
     }
 
     private var walletCards: [WalletCardData] {
+        // Mock carousel cards; the first card is backed by the view model wallet.
         [
             WalletCardData(holderName: viewModel.wallet.holderName, suffix: viewModel.wallet.cardNumberSuffix, balance: viewModel.wallet.balance, expiry: "09/23", peekColor: .ffWarning),
             WalletCardData(holderName: "C Muthu Krishnan", suffix: "7890", balance: 8450.25, expiry: "12/25", peekColor: .ffBlue),
@@ -123,6 +127,7 @@ struct WalletView: View {
     }
 
     private var transactionsSection: some View {
+        // Full transaction list for the wallet screen.
         VStack(alignment: .leading, spacing: 14) {
             HStack {
                 Text("Transactions")
@@ -145,6 +150,7 @@ struct WalletView: View {
     }
 
     private var savingsSection: some View {
+        // Wallet savings preview limited to the visible screenshot rows.
         VStack(alignment: .leading, spacing: 13) {
             HStack(alignment: .center) {
                 Text("Savings")
@@ -167,6 +173,7 @@ struct WalletView: View {
     }
 }
 
+// Local display model for the wallet card carousel.
 private struct WalletCardData: Identifiable {
     let id = UUID()
     let holderName: String
@@ -176,6 +183,7 @@ private struct WalletCardData: Identifiable {
     let peekColor: Color
 }
 
+// White-and-black wallet card used inside the carousel.
 private struct ScreenshotWalletCard: View {
     let card: WalletCardData
 
@@ -250,6 +258,7 @@ private struct ScreenshotWalletCard: View {
     }
 }
 
+// Wallet transaction row with merchant-specific icon styling.
 private struct ScreenshotTransactionRow: View {
     let transaction: Transaction
 
@@ -320,6 +329,7 @@ private struct ScreenshotTransactionRow: View {
     }
 }
 
+// Savings row shown at the bottom of the wallet screen.
 private struct ScreenshotSavingRow: View {
     let goal: SavingsGoal
 
@@ -366,4 +376,8 @@ private struct ScreenshotSavingRow: View {
         .frame(height: 64)
         .background(.white, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
+}
+
+#Preview {
+    WalletView(viewModel: WalletViewModel())
 }

@@ -1,6 +1,6 @@
-
 import SwiftUI
 
+// Full-screen onboarding carousel shown before the tabbed app.
 struct OnboardingView: View {
     @StateObject private var viewModel = OnboardingViewModel()
     let onFinished: () -> Void
@@ -18,12 +18,12 @@ struct OnboardingView: View {
 
                         VStack(alignment: .leading, spacing: 0) {
 
-                            // Hero Area
-                            OnboardingIllustration(symbol: page.symbol)
+                            // Hero artwork stays fixed while copy changes per page.
+                            OnboardingIllustration()
                                 .frame(height: 420)
                             Spacer()
 
-                            // Text Area
+                            // Current page title and supporting copy.
                             VStack(alignment: .leading, spacing: 16) {
 
                                 Text(page.title)
@@ -44,7 +44,7 @@ struct OnboardingView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
 
-                // Bottom Controls
+                // Progress dots and next/finish action.
                 HStack {
 
                     PageIndicator(
@@ -75,5 +75,11 @@ struct OnboardingView: View {
             }
         }
         .navigationBarBackButtonHidden()
+    }
+}
+
+#Preview {
+    OnboardingView {
+        // Preview finished
     }
 }
