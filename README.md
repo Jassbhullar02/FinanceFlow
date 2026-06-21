@@ -2,7 +2,12 @@
 
 FinanceFlow is a SwiftUI personal finance UI project designed to present budgets, expenses, wallet details, and savings goals in a clean mobile interface.
 
-![FinanceFlow app UI screenshot placeholder](./docs/images/financeflow-hero-placeholder.png)
+<p align="center">
+  <img src="Media/photo.jpg" width="260"/>
+
+  <video src="Media/video.MP4" width="260" controls></video>
+</p>
+
 
 ## About
 
