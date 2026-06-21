@@ -4,10 +4,7 @@ FinanceFlow is a SwiftUI personal finance UI project designed to present budgets
 
 <p align="center">
   <img src="Media/photo.jpg" width="260"/>
-
-  <video src="Media/video.MP4" width="260" controls></video>
 </p>
-
 
 ## About
 
